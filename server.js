@@ -30,7 +30,10 @@ hbs.registerHelper('screamIt', (text) => {
 });
 
 app.get('/', (req, res) => {
-	res.send('<h1>Hello Express!</h1>');
+	res.render('home.hbs', {
+		pageTitle: 'Home Page',
+		welcomeMessage: 'Welcome to my website'
+	});
 });
 
 app.get('/about', (req, res) => {
@@ -46,6 +49,13 @@ app.get('/home', (req, res) => {
 		currentYear: new Date().getFullYear(),
 		welcomeMessage: "How ya doin?"
 	});
+})
+
+app.get('/projects', (req, res) => {
+	res.render('projects.hbs', {
+		pageTitle: 'Projects Page',
+		welcomeMessage: 'Welcome to my projects page!'
+	})
 })
 
 app.listen(port, () => {
